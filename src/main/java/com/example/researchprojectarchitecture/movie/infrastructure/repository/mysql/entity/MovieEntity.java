@@ -15,8 +15,8 @@ public class MovieEntity {
     // TODO add fields
 
     @Id
-//    @GeneratedValue(generator="system-uuid")
-//    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
     @Column(name = "movie_id")
     private String movieId;
     @Column(name = "name")

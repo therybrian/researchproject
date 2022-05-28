@@ -43,13 +43,13 @@ public class MovieController {
         return ResponseEntity.ok("Movie saved");
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/id/{id}")
     public ResponseEntity<String> patchMovieName(@PathVariable String id, @RequestBody Movie partialUpdate) {
         movieService.saveMoviePartial(partialUpdate, id);
         return ResponseEntity.ok("Movie updated");
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/id/{id}")
     public ResponseEntity<String> deleteMovieById(@PathVariable String id) {
         if (movieService.existsByString(id)) {
             movieService.deleteMovieById(id);

@@ -13,7 +13,7 @@ import java.util.List;
 
 // Adapter
 
-@Primary // Switch between databases by using the @Primary annotation,  deze annotatie zorgt voor een hogere voorkeur bij een bean wanneer er meerdere van dezelfde beans zijn.
+//@Primary // Switch between databases by using the @Primary annotation,  deze annotatie zorgt voor een hogere voorkeur bij een bean wanneer er meerdere van dezelfde beans zijn.
 @Component
 public class MongoDBMovieRepository implements MovieRepository {
 

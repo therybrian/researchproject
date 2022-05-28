@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-//@Primary // Switch between databases by using the @Primary annotation
+@Primary // Switch between databases by using the @Primary annotation
 @Component
 public class MySQLDBMovieRepository implements MovieRepository {
 
@@ -60,24 +60,30 @@ public class MySQLDBMovieRepository implements MovieRepository {
         List<GenreEntity> genreEntityList = entity.getGenres();
         List<WriterEntity> writerEntityList = entity.getWriters();
 
-        for (ActorEntity actorEntity : actorEntityList) {
-            boolean exists = springDataMySQLActorRepository.existsByActorId(actorEntity.getActorId());
-            if(!exists) {
-                springDataMySQLActorRepository.save(actorEntity);
+        if (actorEntityList != null) {
+            for (ActorEntity actorEntity : actorEntityList) {
+                boolean exists = springDataMySQLActorRepository.existsByActorId(actorEntity.getActorId());
+                if(!exists) {
+                    springDataMySQLActorRepository.save(actorEntity);
+                }
             }
         }
 
-        for (GenreEntity genreEntity : genreEntityList) {
-            boolean exists = springDataMySQLGenreRepository.existsByGenresId(genreEntity.getGenresId());
-            if(!exists) {
-                springDataMySQLGenreRepository.save(genreEntity);
+        if (genreEntityList != null) {
+            for (GenreEntity genreEntity : genreEntityList) {
+                boolean exists = springDataMySQLGenreRepository.existsByGenresId(genreEntity.getGenresId());
+                if (!exists) {
+                    springDataMySQLGenreRepository.save(genreEntity);
+                }
             }
         }
 
-        for (WriterEntity writerEntity : writerEntityList) {
-            boolean exists = springDataMySQLWriterRepository.existsByWriterId(writerEntity.getWriterId());
-            if(!exists) {
-                springDataMySQLWriterRepository.save(writerEntity);
+        if (writerEntityList != null) {
+            for (WriterEntity writerEntity : writerEntityList) {
+                boolean exists = springDataMySQLWriterRepository.existsByWriterId(writerEntity.getWriterId());
+                if (!exists) {
+                    springDataMySQLWriterRepository.save(writerEntity);
+                }
             }
         }
 

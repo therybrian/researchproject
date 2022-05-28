@@ -34,6 +34,7 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=student
       - MONGO_INITDB_ROOT_PASSWORD=student
+      - MONGO_INITDB_DATABASE=movie
   mongo-express:
     image: mongo-express
     container_name: mongo-express-architecture
